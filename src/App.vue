@@ -1,17 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <ul>
+    <li v-for="todo in $$allTodos" :key="todo.id">
+      {{ todo.text }}
+    </li>
+  </ul>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
+  computed: {
+    $allTodos() {
+      return this.$store.getter.$allTodos
+    }
   },
-};
+  created() {
+    this.$store.dispatch('fetchTodos')
+  }
+}
 </script>
 
 <style>
