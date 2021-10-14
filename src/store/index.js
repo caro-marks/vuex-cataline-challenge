@@ -1,33 +1,25 @@
 import { createStore } from 'vuex'
+import { faqCategories } from './../assets/data/db.json'
 
 export default createStore({
   state: {
-    todos: []
+    cats: []
   },
   mutations: {
-    SET_TODOS(state, todos) {
-      state.todos = todos
+    SET_CATS(state, categories) {
+      state.cats = categories
     }
   },
   actions: {
     fetchTodos(context) {
-      const todos = [
-        { id: 1, text: 'Estudar HTML & CSS', done: true },
-        { id: 2, text: 'Conceitos Vuex', done: true },
-        { id: 3, text: 'Atomic Design', done: false },
-        { id: 4, text: 'Começar com Nuxt', done: false },
-        { id: 5, text: 'Back-end com Adonis', done: false }
-      ]
+      const categories = faqCategories
 
-      context.commit('SET_TODOS', todos)
+      context.commit('SET_CATS', categories)
     }
   },
   getters: {
-    $allTodos(state) {
-      return state.todos
-    },
-    $doneTodos(state) {
-      return state.todos.filter((todo) => todo.done)
+    $allCats(state) {
+      return state.cats
     }
   }
 })

@@ -1,31 +1,30 @@
 <template>
-  <ul>
-    <li v-for="todo in $allTodos" :key="todo.id">
-      {{ todo.text }}
-    </li>
-  </ul>
+  <div class="asks-page">
+    <header class="header">
+      <img src="" alt="asking questions" />
+      {{ title }}
+    </header>
+    <ul>
+      <li></li>
+    </ul>
+  </div>
 </template>
 
 <script>
 export default {
-  computed: {
-    $allTodos() {
-      return this.$store.getter.$allTodos
+  data() {
+    return {
+      data: [],
+      title: ''
     }
-  },
-  created() {
-    this.$store.dispatch('fetchTodos')
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.asks-page {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 0.5rem;
 }
 </style>
