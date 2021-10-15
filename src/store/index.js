@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { faqCategories } from './../assets/data/db.json'
+import { faqCategories } from '@/assets/data/db.json'
 
 export default createStore({
   state: {
@@ -11,7 +11,7 @@ export default createStore({
     }
   },
   actions: {
-    fetchTodos(context) {
+    fetchCats(context) {
       const categories = faqCategories
 
       context.commit('SET_CATS', categories)

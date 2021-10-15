@@ -1,12 +1,12 @@
 <template>
   <div class="asks-page">
     <header class="header">
-      <img src="" alt="asking questions" />
-      {{ title }}
+      <img src="@/assets/images/astronaut.svg" alt="asking questions" />
+      Perguntas Frequentes
     </header>
-    <ul>
-      <li></li>
-    </ul>
+    <button v-for="cat in $allCats" :key="cat.id">
+      {{ cat.title }}
+    </button>
   </div>
 </template>
 
@@ -17,6 +17,15 @@ export default {
       data: [],
       title: ''
     }
+  },
+  computed: {
+    $allCats() {
+      return this.$store.getters.$allCats
+    }
+  },
+  created() {
+    this.$store.dispatch('fetchCats')
+    console.log(this.$store.state.cats)
   }
 }
 </script>
@@ -26,5 +35,8 @@ export default {
   display: grid;
   grid-auto-flow: row;
   row-gap: 0.5rem;
+}
+.header {
+  display: grid;
 }
 </style>
