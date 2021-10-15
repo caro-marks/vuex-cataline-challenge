@@ -1,42 +1,34 @@
 <template>
-  <div class="asks-page">
-    <header class="header">
-      <img src="@/assets/images/astronaut.svg" alt="asking questions" />
-      Perguntas Frequentes
-    </header>
-    <button v-for="cat in $allCats" :key="cat.id">
-      {{ cat.title }}
-    </button>
+  <div id="app">
+    <transition mode="out-in">
+      <component :is="$page" />
+    </transition>
   </div>
 </template>
 
 <script>
+import Home from '@/pages/Home.vue'
+import Answer from '@/pages/Answer.vue'
+import Quests from '@/pages/Quests.vue'
+
 export default {
-  data() {
-    return {
-      data: [],
-      title: ''
-    }
-  },
+  components: { Home, Answer, Quests },
   computed: {
-    $allCats() {
-      return this.$store.getters.$allCats
+    $page() {
+      return this.$store.getters.$getPage
     }
   },
   created() {
-    this.$store.dispatch('fetchCats')
-    console.log(this.$store.state.cats)
+    return this.$store.dispatch('fetchCats')
   }
 }
 </script>
 
 <style scoped>
-.asks-page {
+#app {
   display: grid;
   grid-auto-flow: row;
   row-gap: 0.5rem;
-}
-.header {
-  display: grid;
+  text-align: center;
 }
 </style>
