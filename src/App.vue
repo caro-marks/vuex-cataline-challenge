@@ -26,9 +26,8 @@ export default {
 
 <style scoped>
 #app {
-  display: grid;
-  grid-auto-flow: row;
-  row-gap: 0.5rem;
-  text-align: center;
+  background: #3f4452;
+  padding: 1em;
+  border-radius: 30px;
 }
 </style>
