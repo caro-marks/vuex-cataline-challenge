@@ -1,23 +1,24 @@
 <template>
-  <div class="container">
-    <img src="@/assets/images/arrow-back.svg" alt="" />
+  <div class="container-button">
+    <img src="@/assets/images/arrow-left.svg" alt="" @click="back" />
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    page: String
+  },
   methods: {
     back() {
-      const prev = this.$store.getters.$getPrev
-      this.$store.dispatch('fetchPrev', this.$store.getters.$getPage)
-      this.$store.dispatch('fetchPage', prev)
+      this.$store.dispatch('fetchPage', this.page)
     }
   }
 }
 </script>
 
 <style>
-img {
+.container-button img {
   cursor: pointer;
   background-color: transparent;
   border-radius: 8px;
@@ -26,7 +27,7 @@ img {
   width: 39px;
   margin-top: 10px;
 }
-img:hover {
+.container-button img:hover {
   background-color: black;
 }
 </style>

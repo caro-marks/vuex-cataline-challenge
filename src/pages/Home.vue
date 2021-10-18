@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="header">
+  <div class="container-home">
+    <div class="home-header">
       <img src="@/assets/images/astronaut.svg" alt="" class="img-heading" />
       <div class="text-heading">
         <p>{{ title }}</p>
@@ -49,20 +49,17 @@ export default {
 </script>
 
 <style>
-.container {
-  display: grid;
-  grid-auto-rows: 1fr 2fr;
+.container-home {
   width: 90%;
   padding: 0.5em;
 }
-.header {
+.home-header {
   padding: 1rem 0.25rem;
 }
 .text-heading {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 1.1em;
 }
 .text-heading p {
   font-size: 20px;
@@ -77,17 +74,12 @@ export default {
 .cats {
   margin-top: 2em;
 }
-ul,
-li {
-  list-style: none;
-  margin: auto;
-}
 .cat {
   display: flex;
   justify-content: left;
   align-items: center;
   text-align: center;
-  padding: 15px;
+  padding: 0.5em;
   width: 100%;
   cursor: pointer;
   font-size: 16px;
