@@ -10,10 +10,10 @@
 </p>
 
 <h4 align="center"> 
-	🚧  Vuex Challenge 🚀 In production!
+	🚧  Vuex Challenge 🚀 In production! Visit it
+  <a href="https://cataline-vuex-challenge.vercel.app/">HERE</a>
 </h4>
- Visit at:
-  <a text-decoration='None'>https://cataline-vuex-challenge.vercel.app/</a>
+ 
 <br />
 
 ## Tech Stack
