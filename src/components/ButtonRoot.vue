@@ -1,6 +1,6 @@
 <template>
-  <div class="custom-button">
-    <img :src="getIcon()" />
+  <div :class="['custom-button', this.className]">
+    <img v-if="this.iconPath" :src="getIcon()" />
     <span>{{ this.title }}</span>
   </div>
 </template>
@@ -9,7 +9,8 @@
 export default {
   props: {
     title: String,
-    iconPath: String
+    iconPath: String,
+    className: String
   },
   methods: {
     getIcon() {
@@ -22,14 +23,16 @@ export default {
 <style>
 .custom-button {
   display: grid;
-  grid-template-columns: 15% 1fr;
-  /* border: 1px dashed teal; */
-  margin: 0.2em;
-  padding: 0.5em 0.2em;
   cursor: pointer;
   transition: all 0.6s;
   border-radius: 10px;
   align-items: center;
+}
+.dynamic-Cats {
+  grid-template-columns: 15% 1fr;
+}
+.dynamic-Quests {
+  padding: 0 1.5em;
 }
 .custom-button img {
   width: 50%;

@@ -27,7 +27,6 @@ export default {
 <style scoped>
 #app {
   background: #3f4452;
-  /* border: 1px dashed thistle; */
   border-radius: 10px;
   padding: 0.5em;
   margin: 0.5em;
@@ -37,10 +36,10 @@ export default {
 }
 .container {
   border-radius: 10px;
-  border: 1px dashed white;
   margin: 0.1em;
   padding: 0.1em;
   display: grid;
+  row-gap: 0.1rem;
   height: 500px;
 }
 </style>

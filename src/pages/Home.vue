@@ -6,15 +6,12 @@
       <span>{{ subtitle }}</span>
     </div>
     <ul class="cats">
-      <!-- <li class="cat" v-for="cat in $cats" :key="cat.id" @click="goToCat(cat)">
-        <img :src="getIcon(cat.icon)" alt="" />
-        <span>{{ cat.title }}</span>
-      </li> -->
       <ButtonRoot
         v-for="cat in $cats"
         :key="cat.id"
         :title="cat.title"
         :iconPath="cat.icon"
+        className="dynamic-Cats"
         @click="goToCat(cat)"
       />
     </ul>
@@ -51,7 +48,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.container {
+  grid-template-rows: 3fr 1fr 5fr;
+}
 .text-header {
   border-radius: 10px;
   /* border: 1px dashed tomato; */
@@ -71,7 +71,7 @@ export default {
   font-weight: regular;
 }
 .cats {
-  border-radius: 10px;
+  /* border-radius: 10px; */
   /* border: 1px dashed tomato; */
   margin: 0.1em;
   padding: 0.1em;

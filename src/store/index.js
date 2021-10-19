@@ -7,7 +7,6 @@ export default createStore({
     cat: [],
     quest: [],
     page: 'Home'
-    // prev: ''
   },
   mutations: {
     SET_CATS(state, categories) {
@@ -22,9 +21,6 @@ export default createStore({
     SET_PAGE(state, page) {
       state.page = page
     }
-    // SET_PREVIOUS(state, prev) {
-    //   state.prev = prev
-    // }
   },
   actions: {
     fetchCats(context) {
@@ -41,9 +37,6 @@ export default createStore({
     fetchPage(context, page) {
       context.commit('SET_PAGE', page)
     }
-    // fetchPrev(context, prev) {
-    //   context.commit('SET_PREV', prev)
-    // }
   },
   getters: {
     $allCats(state) {
@@ -58,8 +51,5 @@ export default createStore({
     $getPage(state) {
       return state.page
     }
-    // $getPrev(state) {
-    //   return state.prev
-    // }
   }
 })

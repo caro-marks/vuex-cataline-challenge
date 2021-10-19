@@ -1,5 +1,5 @@
 <template>
-  <div class="container-quests">
+  <div class="container">
     <div class="quests-header">
       <Backwards class="back-quests" page="Home" />
       <div class="texts">
@@ -8,26 +8,33 @@
       </div>
       <img :src="getIcon($Cat.icon)" class="cat-icon" />
     </div>
-    <div class="quests-box">
-      <ul class="quests">
-        <li
+    <ul class="quests">
+      <!-- <li
           class="quest"
           v-for="quest in $Cat.questions"
           :key="quest.id"
           @click="goToQuest(quest)"
         >
           <span>{{ quest.title }}</span>
-        </li>
-      </ul>
-    </div>
+        </li> -->
+      <ButtonRoot
+        v-for="quest in $Cat.questions"
+        :key="quest.id"
+        :title="quest.title"
+        className="dynamic-Quests"
+        @click="goToQuest(quest)"
+      />
+    </ul>
   </div>
 </template>
 <script>
 import Backwards from '@/components/Backwards.vue'
+import ButtonRoot from '@/components/ButtonRoot.vue'
 
 export default {
   components: {
-    Backwards
+    Backwards,
+    ButtonRoot
   },
   data() {
     return {
@@ -54,19 +61,23 @@ export default {
 }
 </script>
 
-<style>
-.container-quests {
-  width: 90%;
-  margin: 0.5em;
+<style scoped>
+.container {
+  grid-template-rows: 23% 1fr;
+  margin: 0.25em;
+  padding: 0.25em;
 }
 .quests-header {
+  padding: 0 0.5em;
+  margin: 0.1rem;
   display: grid;
-  grid-template-columns: auto 1fr auto;
-  column-gap: 0.9em;
+  grid-template-columns: 15% 1fr 20%;
+  column-gap: 0.5em;
   align-items: center;
-  padding: 2rem;
-  margin-bottom: 1em;
   border-bottom: 1px solid #5d6681;
+}
+.texts {
+  margin: 0.5em;
 }
 .texts .title {
   font-size: 20px;
@@ -79,23 +90,10 @@ export default {
   width: 1.5em;
 }
 .quests {
-  margin-top: 1.5em;
+  padding: 0.1rem;
+  margin: 0.1rem;
   display: grid;
-  grid-template-rows: auto;
-  row-gap: 2em;
-  margin: 0.5em;
-}
-.quest {
-  padding: 0.5em;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 15px;
-  transition: all 0.6s;
-}
-.quest span {
-  font-size: 16px;
-}
-.quest:hover {
-  background-color: #5d6681;
+  grid-auto-rows: minmax(0, 50px);
+  row-gap: 1em;
 }
 </style>

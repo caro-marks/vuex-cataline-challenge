@@ -20,7 +20,6 @@ export default {
 <style>
 .container-button img {
   cursor: pointer;
-  background-color: transparent;
   border-radius: 8px;
   transition: 0.2s ease-in-out;
   padding: 5px;
