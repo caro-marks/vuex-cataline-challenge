@@ -1,21 +1,33 @@
 <template>
-  <div class="container-home">
+  <div class="container">
     <img src="@/assets/images/astronaut.svg" alt="astronaut" />
     <div class="text-header">
       <p>{{ title }}</p>
       <span>{{ subtitle }}</span>
     </div>
     <ul class="cats">
-      <li class="cat" v-for="cat in $cats" :key="cat.id" @click="goToCat(cat)">
+      <!-- <li class="cat" v-for="cat in $cats" :key="cat.id" @click="goToCat(cat)">
         <img :src="getIcon(cat.icon)" alt="" />
         <span>{{ cat.title }}</span>
-      </li>
+      </li> -->
+      <ButtonRoot
+        v-for="cat in $cats"
+        :key="cat.id"
+        :title="cat.title"
+        :iconPath="cat.icon"
+        @click="goToCat(cat)"
+      />
     </ul>
   </div>
 </template>
 
 <script>
+import ButtonRoot from '@/components/ButtonRoot.vue'
+
 export default {
+  components: {
+    ButtonRoot
+  },
   data() {
     return {
       title: 'Perguntas Frequentes',
@@ -40,16 +52,9 @@ export default {
 </script>
 
 <style>
-.container-home {
-  border-radius: 10px;
-  border: 1px dashed white;
-  margin: 0.1em;
-  padding: 0.1em;
-  display: grid;
-}
 .text-header {
   border-radius: 10px;
-  border: 1px dashed tomato;
+  /* border: 1px dashed tomato; */
   margin: 0.1em;
   padding: 0.1em;
   display: grid;
@@ -67,7 +72,7 @@ export default {
 }
 .cats {
   border-radius: 10px;
-  border: 1px dashed tomato;
+  /* border: 1px dashed tomato; */
   margin: 0.1em;
   padding: 0.1em;
   display: grid;
@@ -77,14 +82,12 @@ export default {
 .cat {
   display: grid;
   grid-template-columns: 15% 1fr;
-  border-radius: 10px;
-  border: 1px dashed teal;
-  padding: 0.2em;
+  /* border: 1px dashed teal; */
   margin: 0.2em;
+  padding: 0.5em 0.2em;
   cursor: pointer;
   transition: all 0.6s;
   border-radius: 10px;
-  border-radius: 100px;
   align-items: center;
 }
 .cat img {

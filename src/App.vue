@@ -27,11 +27,20 @@ export default {
 <style scoped>
 #app {
   background: #3f4452;
-  border: 1px dashed thistle;
+  /* border: 1px dashed thistle; */
   border-radius: 10px;
   padding: 0.5em;
   margin: 0.5em;
   width: 400px;
   height: auto;
+  box-shadow: 8px 16px 32px 16px rgba(123, 234, 456, 0.2);
+}
+.container {
+  border-radius: 10px;
+  border: 1px dashed white;
+  margin: 0.1em;
+  padding: 0.1em;
+  display: grid;
+  height: 500px;
 }
 </style>
