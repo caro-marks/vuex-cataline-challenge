@@ -8,19 +8,10 @@ body {
   font-family: Lato;
   color: #f5f6f8;
   background-color: #26282c;
-  padding: 0.5rem;
+  padding: 5vh 0;
   display: flex;
   justify-content: center;
-}
-
-a {
-  color: #22e0db;
-  text-decoration: none;
-}
-ul,
-li {
-  list-style: none;
-  margin: auto;
+  border: 1px dashed white;
 }
 
 @font-face {

@@ -1,25 +1,16 @@
 <template>
   <div class="container-home">
-    <div class="home-header">
-      <img src="@/assets/images/astronaut.svg" alt="" class="img-heading" />
-      <div class="text-heading">
-        <p>{{ title }}</p>
-        <span>{{ subtitle }}</span>
-      </div>
+    <img src="@/assets/images/astronaut.svg" alt="astronaut" />
+    <div class="text-header">
+      <p>{{ title }}</p>
+      <span>{{ subtitle }}</span>
     </div>
-    <div class="cats-box">
-      <ul class="cats">
-        <li
-          class="cat"
-          v-for="cat in $cats"
-          :key="cat.id"
-          @click="goToCat(cat)"
-        >
-          <img :src="getIcon(cat.icon)" alt="" />
-          <span>{{ cat.title }}</span>
-        </li>
-      </ul>
-    </div>
+    <ul class="cats">
+      <li class="cat" v-for="cat in $cats" :key="cat.id" @click="goToCat(cat)">
+        <img :src="getIcon(cat.icon)" alt="" />
+        <span>{{ cat.title }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -50,45 +41,57 @@ export default {
 
 <style>
 .container-home {
-  width: 90%;
-  padding: 0.5em;
+  border-radius: 10px;
+  border: 1px dashed white;
+  margin: 0.1em;
+  padding: 0.1em;
+  display: grid;
 }
-.home-header {
-  padding: 1rem 0.25rem;
+.text-header {
+  border-radius: 10px;
+  border: 1px dashed tomato;
+  margin: 0.1em;
+  padding: 0.1em;
+  display: grid;
+  grid-template-rows: 3fr 2fr;
 }
-.text-heading {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.text-heading p {
+.text-header p {
   font-size: 20px;
   font-weight: Bold;
-  margin: 0.5rem 0;
+  padding: 0.1rem 0;
 }
-.text-heading span {
-  margin-top: 0.5em;
+.text-header span {
+  margin: 0.1rem;
   font-size: 13px;
   font-weight: regular;
 }
 .cats {
-  margin-top: 2em;
+  border-radius: 10px;
+  border: 1px dashed tomato;
+  margin: 0.1em;
+  padding: 0.1em;
+  display: grid;
+  grid-template-rows: auto;
+  row-gap: 0.1rem;
 }
 .cat {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  text-align: center;
-  padding: 0.5em;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  border-radius: 10px;
+  border: 1px dashed teal;
+  padding: 0.2em;
+  margin: 0.2em;
   cursor: pointer;
-  font-size: 16px;
   transition: all 0.6s;
-  border-radius: 15px;
+  border-radius: 10px;
+  border-radius: 100px;
+  align-items: center;
 }
 .cat img {
-  width: 10%;
-  margin: 1.5rem;
+  width: 50%;
+}
+.cat span {
+  font-size: 16px;
 }
 .cat:hover {
   background-color: #5d6681;

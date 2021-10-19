@@ -27,7 +27,11 @@ export default {
 <style scoped>
 #app {
   background: #3f4452;
-  padding: 1em;
-  border-radius: 30px;
+  border: 1px dashed thistle;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 0.5em;
+  width: 400px;
+  height: auto;
 }
 </style>
