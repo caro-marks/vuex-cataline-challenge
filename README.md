@@ -10,18 +10,19 @@
 </p>
 
 <h4 align="center"> 
-	🚧  Vuex Challenge 🚀 In production! Visit at:
-  <a text-decoration='None'>https://cataline-vuex-challenge.vercel.app/</a>
+	🚧  Vuex Challenge 🚀 In production!
 </h4>
+ Visit at:
+  <a text-decoration='None'>https://cataline-vuex-challenge.vercel.app/</a>
 <br />
 
 ## Tech Stack
 
 Tools used on the project
 
-- **[Vue](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom)**
-- **[Vuex](https://react-icons.github.io/react-icons/)**
-- **[animate.css](https://github.com/axios/axios)**
+- **[Vue](https://vuejs.org/)**
+- **[Vuex](https://vuex.vuejs.org/)**
+- **[animate.css](https://animate.style/)**
 
 ## Cloning
 
