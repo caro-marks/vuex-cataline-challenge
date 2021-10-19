@@ -1,33 +1,55 @@
 import { createStore } from 'vuex'
+import { faqCategories } from '@/assets/data/db.json'
 
 export default createStore({
   state: {
-    todos: []
+    cats: [],
+    cat: [],
+    quest: [],
+    page: 'Home'
   },
   mutations: {
-    SET_TODOS(state, todos) {
-      state.todos = todos
+    SET_CATS(state, categories) {
+      state.cats = categories
+    },
+    SET_CAT(state, cat) {
+      state.cat = cat
+    },
+    SET_QUEST(state, quest) {
+      state.quest = quest
+    },
+    SET_PAGE(state, page) {
+      state.page = page
     }
   },
   actions: {
-    fetchTodos(context) {
-      const todos = [
-        { id: 1, text: 'Estudar HTML & CSS', done: true },
-        { id: 2, text: 'Conceitos Vuex', done: true },
-        { id: 3, text: 'Atomic Design', done: false },
-        { id: 4, text: 'Começar com Nuxt', done: false },
-        { id: 5, text: 'Back-end com Adonis', done: false }
-      ]
+    fetchCats(context) {
+      const categories = faqCategories
 
-      context.commit('SET_TODOS', todos)
+      context.commit('SET_CATS', categories)
+    },
+    fetchCat(context, cat) {
+      context.commit('SET_CAT', cat)
+    },
+    fetchQuest(context, quest) {
+      context.commit('SET_QUEST', quest)
+    },
+    fetchPage(context, page) {
+      context.commit('SET_PAGE', page)
     }
   },
   getters: {
-    $allTodos(state) {
-      return state.todos
+    $allCats(state) {
+      return state.cats
     },
-    $doneTodos(state) {
-      return state.todos.filter((todo) => todo.done)
+    $getCat(state) {
+      return state.cat
+    },
+    $getQuest(state) {
+      return state.quest
+    },
+    $getPage(state) {
+      return state.page
     }
   }
 })

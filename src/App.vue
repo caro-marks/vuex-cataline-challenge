@@ -1,31 +1,45 @@
 <template>
-  <ul>
-    <li v-for="todo in $allTodos" :key="todo.id">
-      {{ todo.text }}
-    </li>
-  </ul>
+  <div id="app">
+    <transition mode="out-in">
+      <component :is="$page" />
+    </transition>
+  </div>
 </template>
 
 <script>
+import Home from '@/pages/Home.vue'
+import Answer from '@/pages/Answer.vue'
+import Quests from '@/pages/Quests.vue'
+
 export default {
+  components: { Home, Answer, Quests },
   computed: {
-    $allTodos() {
-      return this.$store.getter.$allTodos
+    $page() {
+      return this.$store.getters.$getPage
     }
   },
   created() {
-    this.$store.dispatch('fetchTodos')
+    return this.$store.dispatch('fetchCats')
   }
 }
 </script>
 
-<style>
+<style scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background: #3f4452;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 0.5em;
+  width: 400px;
+  height: auto;
+  box-shadow: 8px 16px 32px 16px rgba(123, 234, 456, 0.2);
+}
+.container {
+  border-radius: 10px;
+  margin: 0.1em;
+  padding: 0.1em;
+  display: grid;
+  row-gap: 0.1rem;
+  height: 500px;
 }
 </style>
